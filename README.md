@@ -1,1 +1,1 @@
-# Django_News_project
+# เว็บไซต์จัดการข่าวสาร Esport
