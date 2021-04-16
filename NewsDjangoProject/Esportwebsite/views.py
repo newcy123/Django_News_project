@@ -14,11 +14,11 @@ def result(request): # HTTP POST
     
     name = request.POST['name_news']
     detail = request.POST['detail_news']
+
     print(name)
+
     mydata ={
         'name_news' : name,
         'name_detail':detail,
     }
-
-
     return render(request,'Esportwebsite/result.html',mydata)
