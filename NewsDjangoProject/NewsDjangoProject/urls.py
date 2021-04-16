@@ -21,5 +21,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.home),
     path('addnews/',views.addnews),
+    path('addnewsdata/',views.addnewsdata,name='addnewsdata'),
+    path('contentmanager/',views.contentmanager),
     path('result/',views.result,name="result")
 ]

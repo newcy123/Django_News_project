@@ -1,0 +1,39 @@
+{% extends 'Esportwebsite/header.html' %}
+
+{% block content %}
+<br>
+<h1>จัดการข่าวสาร</h1>
+<br>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ชื่อ</th>
+        <th scope="col">รายละเอียด</th>
+        <th scope="col">วันที่</th>
+        <th scope="col">action</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for data in news %}
+        <tr>
+            <th scope="row">{{data.id}}</th>
+            <td>{{data.news_title}}</td>
+            <!-- <td>{{data.news_detail}}</td> -->
+            <!-- <td>{{data.news_photo}}</td> -->
+            <td>{{data.news_date}}</td>
+            <td>
+                <button type="button" class="btn btn-primary">แก้ไขข้อมูล</button>
+                <button type="button" class="btn btn-danger">ลบข้อมูล</button>
+
+
+            </td>
+        
+        </tr>
+        {% endfor %}
+     
+  </table>
+
+
+
+
+{% endblock %}
