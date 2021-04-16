@@ -1,0 +1,34 @@
+{% extends 'Esportwebsite/header.html' %}
+
+{% block content %}
+<br>
+<h1>เพิ่มข่าวสาร</h1>
+
+<form action="{% url 'result' %}" method="post">
+    {% csrf_token %}
+<div class="form-group">
+    <label for="">ข่าวสาร</label>
+    <input type="text" name="name_news" class="form-control">
+</div>
+
+<div class="form-group">
+    <label for="">รายละเอียดข่าวสาร</label>
+    <textarea class="form-control" name="detail_news" id="detail_news"  rows="5"></textarea>
+</div>
+
+
+<div class="form-group">
+   <input type="file" name="file" accept="image/x-png,image/gif,image/jpeg"> 
+    <img id="blah" src="#" alt="" class="img-thumbnail">
+</div>
+
+
+<input type="submit" value="บันทึกข่าวสาร" class="btn btn-success">
+
+
+
+</form>
+
+
+
+{% endblock %}
