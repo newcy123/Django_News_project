@@ -16,6 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from Esportwebsite import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -23,5 +25,7 @@ urlpatterns = [
     path('addnews/',views.addnews),
     path('addnewsdata/',views.addnewsdata,name='addnewsdata'),
     path('contentmanager/',views.contentmanager),
+    path('contentedit/',views.contentedit,name='contentedit'),
+    path('contentupdate/',views.contentupdate,name='contentupdate'),
     path('result/',views.result,name="result")
-]
+] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

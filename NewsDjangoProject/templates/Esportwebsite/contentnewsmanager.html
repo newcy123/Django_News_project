@@ -18,14 +18,15 @@
         <tr>
             <th scope="row">{{data.id}}</th>
             <td>{{data.news_title}}</td>
-            <!-- <td>{{data.news_detail}}</td> -->
-            <!-- <td>{{data.news_photo}}</td> -->
             <td>{{data.news_date}}</td>
             <td>
-                <button type="button" class="btn btn-primary">แก้ไขข้อมูล</button>
+              <form action="{% url 'contentedit' %}" method="get">
+                <input type="hidden" value="{{data.id}}" name="id">
+                <button type="submit" class="btn btn-primary">แก้ไขข้อมูล</button>
                 <button type="button" class="btn btn-danger">ลบข้อมูล</button>
-
-
+              </form>  
+                
+            
             </td>
         
         </tr>
