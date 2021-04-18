@@ -27,5 +27,6 @@ urlpatterns = [
     path('contentmanager/',views.contentmanager),
     path('contentedit/',views.contentedit,name='contentedit'),
     path('contentupdate/',views.contentupdate,name='contentupdate'),
+    path('contentdelete/',views.contentdelete,name='contentdelete'),
     path('result/',views.result,name="result")
-] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT) #เกี่ยวกับรูป

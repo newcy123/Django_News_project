@@ -3,7 +3,6 @@ from django.http import HttpResponse #1 เพือเอาไปแสดง�
 from .models import tb_news
 
 # Create your views here.
-#5 render(request,'Esportwebsite/index.html') ใช้ render แทน HttpResponse
 
 def home(request): 
     return render(request,'Esportwebsite/home.html') #7 render(request,'Esportwebsite/index.html',mydata) ส่งข้อมูลไปยัง html
@@ -27,7 +26,7 @@ def contentmanager(request): # แสดงข่าวสารที่ได�
     print(datanews)
     return render(request,'Esportwebsite/contentnewsmanager.html',mydatanews)
 
-def contentedit(request): #แสดงข้อมูลที่ต้องการแก้ไขเมือกดปุ่มแก้ไข
+def contentedit(request): #แสดงหน้าข้อมูลที่ต้องการแก้ไขเมือกดปุ่มแก้ไข
     id = request.GET['id']
     result = tb_news.objects.filter(pk=id)
     return render(request,'Esportwebsite/contentnewsedit.html',{'result':result})
@@ -52,6 +51,11 @@ def contentupdate(request): #บันทึกข้อมูลที่ต้
     return redirect("/contentmanager")
     
 
+def contentdelete(request):
+    id = request.POST['id']
+    content = tb_news.objects.get(pk=id)
+    content.delete()
+    return redirect("/contentmanager")
 
 
 def result(request): # HTTP POST #โยนข้อมูลไปหน้าบ้านจะต้องโยนเป็น dict เสมอ
