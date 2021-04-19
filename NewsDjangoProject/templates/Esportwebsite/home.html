@@ -3,4 +3,21 @@
 
 {% block content %}
 
+<br>
+
+<form action="{% url 'newsdetail' %}" method="get">
+    {% for data in newsdata %}
+    <input type="hidden" value="{{data.id}}" name="id">
+    <div class="card mb-3">
+        <img class="card-img-top" src="{{data.news_photo.url}}" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">{{data.news_title}}</h5>
+            <p class="card-text"><small class="text-muted">{{data.news_date}}</small></p>
+            <input type="submit" value="อ่านต่อ" class="btn btn-success">
+        </div>
+    </div>
+    {% endfor %}
+</form>
+<br>
+
 {% endblock %}

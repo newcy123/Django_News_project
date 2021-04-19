@@ -5,7 +5,13 @@ from .models import tb_news
 # Create your views here.
 
 def home(request): 
-    return render(request,'Esportwebsite/home.html') #7 render(request,'Esportwebsite/index.html',mydata) ส่งข้อมูลไปยัง html
+    content = tb_news.objects.all()
+    return render(request,'Esportwebsite/home.html',{'newsdata':content}) #7 render(request,'Esportwebsite/index.html',mydata) ส่งข้อมูลไปยัง html
+
+def newsdetail(request):
+    id = request.GET['id']
+    result = tb_news.objects.filter(pk=id)
+    return render(request,'Esportwebsite/newsdetail.html',{'newsdetail':result}) 
 
 def addnews(request): # แสดงหน้า addnews
     return render(request,'Esportwebsite/addnew.html')
