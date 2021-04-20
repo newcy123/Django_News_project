@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse #1 เพือเอาไปแสดงหน้าเว็บ
 from .models import tb_news
+from django.contrib.auth.models import User,auth #การเข้ารหัส
 
 # Create your views here.
 
@@ -57,11 +58,44 @@ def contentupdate(request): #บันทึกข้อมูลที่ต้
     return redirect("/contentmanager")
     
 
-def contentdelete(request):
+def contentdelete(request): #ลบข้อมูล
     id = request.POST['id']
     content = tb_news.objects.get(pk=id)
     content.delete()
     return redirect("/contentmanager")
+
+
+# เกี่ยวกับระบบสมาชิก
+
+def registeruser(request): #แสดงหน้า register
+    return render(request,'Esportwebsite/registeruser.html')
+
+def adduser(request): #บันทึกข้อมูล user
+    fname = request.POST['fname']
+    lname = request.POST['lname']
+    username = request.POST['username']
+    email = request.POST['email']
+    password = request.POST['password']
+    repassword = request.POST['repassword']
+    
+    user = User.objects.create_user(
+        first_name =fname,
+        last_name = lname,
+        username= username,
+        email= email,
+        password = password
+    )
+    user.save()
+    return HttpResponse("บันทึกข้อมูลลงทะเบียนแล้ว!!")
+
+
+
+
+
+
+
+
+
 
 
 def result(request): # HTTP POST #โยนข้อมูลไปหน้าบ้านจะต้องโยนเป็น dict เสมอ
