@@ -33,6 +33,9 @@ urlpatterns = [
    
    path('registeruser/',views.registeruser),
    path('adduser/',views.adduser,name='adduser'),
+   path('login/',views.login),
+   path('logincheck/',views.logincheck,name="logincheck"),
+   path('logoff/',views.logoff),
    
    
     path('result/',views.result,name="result")

@@ -3,7 +3,7 @@
 {% block content %}
 
 <br>
-<h1>ลงทะเบียนผู้ใช้งาน</h1>
+<h1>ลงทะเบียนผู้ใช้งาน {{check}}</h1>
 
 <form action="{% url 'adduser' %}" method="post">
     {% csrf_token %}
