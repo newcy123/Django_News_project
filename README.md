@@ -40,6 +40,10 @@ python manage.py makemigrations
 python manage.py migrate
 ```
 
+## **คำสั่งสร้าง Admin**
+```
+python manage.py createsuperuser
+```
 
 ## **Run server**
   - เข้า virtaulenv ที่สร้างก่อนรัน server ทุกครั้ง ด้วยคำสั่ง
