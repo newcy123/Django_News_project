@@ -2,7 +2,7 @@
 
 http://newcy123.pythonanywhere.com/
 
-- **พัฒนาโดยใช้**
+- **พัฒนา**
 ```
 Django Framework
 Bootstrap
