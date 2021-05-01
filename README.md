@@ -9,6 +9,7 @@ Bootstrap
 python 3.8
 ```
 
+
 **การติดตั้งโปรเจคเริ่มต้น**
 ```
 mkvirtualenv (ชื่อ env)
@@ -20,11 +21,13 @@ django-admin startproject ชื่อโปรเจค
 python manage.py startapp ชื่อapp
 ```
 
+
 **ติดตั้ง module เสริม เกี่ยวกับ texteditor**
 ```
 pip install django-wysiwyg
 pip install django-ckeditor
 ```
+
 
 **Data base**
 - ใช้คำสั้งนี้ทุกครั้งเมือมีการ update database(models)
