@@ -1,0 +1,64 @@
+{% extends 'Esportwebsite/header.html' %}
+
+{% block content %}
+<br>
+<h1>จัดการข่าวสาร</h1>
+<br>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ชื่อ</th>
+      <th scope="col">รายละเอียด</th>
+      <th scope="col">วันที่</th>
+      <th scope="col">action</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for data in news %}
+    <tr>
+      <th scope="row">{{data.id}}</th>
+      <td>{{data.news_title}}</td>
+      <td>{{data.news_date}}</td>
+      <td>
+        <form action="{% url 'contentedit' %}" method="get">
+          <input type="hidden" value="{{data.news_title}}" name="title"> 
+           <!--<input type="hidden" value="{{data.id}}" name="id">-->   
+          <button type="submit" class="btn btn-primary">แก้ไขข้อมูล</button>
+          <td>       
+            <button type="button" class="btn btn-danger" data-toggle="modal"data-target="#exampleModal{{data.id}}">ลบข้อมูล</button>
+          </td>
+        </form>
+      </td>
+    </tr>
+
+    <!---- modal -->
+    <div class="modal fade" id="exampleModal{{data.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <form action="{% url 'contentdelete' %}" method="post">
+          {% csrf_token %}
+          <input type="hidden" value="{{data.id}}" name="id">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">ยืนยันการลบข้อมูล</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              คุณต้องการลบข้อมูลข่าวสาร {{data.news_title}} หรือไม่ ?
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">ยืนยันการลบข้อมูล</button>
+            </div>
+          </div>
+        </form>
+
+      </div>
+    </div>
+    {% endfor %}
+
+</table>
+{% endblock %}

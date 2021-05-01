@@ -1,0 +1,29 @@
+{% extends 'Esportwebsite/header.html' %}
+
+{% block content %}
+<br>
+
+
+
+{% for data in result %}
+
+
+    
+
+<input type="hidden" value="{{data.id}}" name="id">
+
+<div class="shadow p-3 mb-5 bg-white rounded">
+   
+        <h1>{{data.news_title}}</h1>
+        <hr>
+    
+    <div class="card-body">
+        <img id="blah" src="{{data.news_photo.url}}" alt="">
+        <p><i class="fa fa-user"></i> {{data.news_author}}</p>
+        <p>{{data.news_detail | safe }}</p>
+    </div>
+</div>
+{% endfor %}
+
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'Esportwebsite/header.html' %}
+
+{% block content %}
+{% load static %}
+<style>
+    body{
+        background-color:white;
+    }
+    
+    
+</style>
+
+<div class="w3-row" align="center">
+    <div class="w3-col m6">
+        <div class="w3-padding-small">
+            <div class="header_blog mybg2">
+                "สะสม"
+                <h4 class="txt">{{covid19.Confirmed}}</h4>
+            </div>
+        </div>
+    </div>
+</div>
+<h1>ติดเชื้อ: {{covid19.Confirmed}}</h1>
+<h1>หายแล้ว: {{covid19.Confirmed}}</h1>
+<h1>รักษาอยู่ในโรงพยาบาล: {{covid19.Confirmed}}</h1>
+<h1>เสียชีวิต: {{covid19.Confirmed}}</h1>
+
+
+{% endblock %}

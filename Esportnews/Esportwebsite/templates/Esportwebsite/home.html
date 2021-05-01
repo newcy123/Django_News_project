@@ -1,0 +1,70 @@
+{% extends 'Esportwebsite/header.html '%}
+
+
+{% block content %}
+<style>
+    h5,
+    strong {
+        font-weight: bolder;
+    }
+
+    .card {
+        box-shadow: 0 0 10px 0 rgba(100, 100, 100, 0.26);
+    }
+
+ 
+</style>
+<br>
+{% for msg in messages %}
+
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    {{msg}}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+
+{% endfor %}
+
+
+
+{% for data in newsdata %}
+<form action="{% url 'newsdetail' %}" method="get">
+    <!--<input type="hidden" value="{{data.id}}" name="id">-->
+
+    <!--<div class="shadow p-3 mb-5 bg-white rounded">-->
+    <div class="container">
+            <div class="mb-3">
+                <div class="card">
+                    <div class="card-body">
+                    <img class="card-img-top" src="{{data.news_photo.url}}" alt="Card image cap">
+                    <br>
+                    <h5 class="card-title">{{data.news_title}}</h5>
+                    <input type="hidden" value="{{data.news_title}}" name="title">
+                    <p class="card-text"><small class="text-muted"><i class="fa fa-clock-o"></i> {{data.news_date}}  เขียนโดย {{data.news_author}}</small></p>
+                    <input type="submit" value="อ่านต่อ" class="btn btn-success">
+                    </div>
+            </div>
+        </div>
+    </div>
+
+</form>
+{% endfor %}
+
+{% for data in find %}
+<form action="{% url 'newsdetail' %}" method="get">
+    <div class="shadow p-3 mb-5 bg-white rounded">
+        <img class="card-img-top" src="{{data.news_photo.url}}" alt="Card image cap">
+        <div class="card-body">
+            <h1><b>{{data.news_title}}</b></h1>
+            <input type="hidden" value="{{data.news_title}}" name="title">
+            <p class="card-text"><small class="text-muted"><i class="fa fa-clock-o"></i> {{data.news_date}}  เขียนโดย {{data.news_author}}</small></p>
+            <input type="submit" value="อ่านต่อ" class="btn btn-success">
+        </div>
+    </div>
+
+</form>
+{% endfor %}
+<br>
+
+{% endblock %}
