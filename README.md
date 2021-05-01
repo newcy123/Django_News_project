@@ -27,7 +27,7 @@ pip install django-ckeditor
 ```
 
 **Data base**
--ใช้คำสั้งนี้ทุกครั้งเมือมีการ update database(models)
+- ใช้คำสั้งนี้ทุกครั้งเมือมีการ update database(models)
 ```
 python manage.py makemigrations
 python manage.py migrate
