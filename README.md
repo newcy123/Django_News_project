@@ -8,7 +8,6 @@ http://newcy123.pythonanywhere.com/
   
 ## **เทคโนโลยีที่ใช้พัฒนา**
 ```
-python 3.8
 Django Framework
 Bootstrap
 MySQL
