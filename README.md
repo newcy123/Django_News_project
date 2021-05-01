@@ -1,4 +1,5 @@
 # เว็บไซต์จัดการข่าวสารเกี่ยวกับวงการ Esport
+![image](https://user-images.githubusercontent.com/54393954/116770125-82f13300-aa6b-11eb-8be8-c25b03fa479d.png)
 
 http://newcy123.pythonanywhere.com/
 
