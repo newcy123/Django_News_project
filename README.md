@@ -1,16 +1,32 @@
 # เว็บไซต์จัดการข่าวสารเกี่ยวกับวงการ Esport
 
-http://newcy123.pythonanywhere.com/
-- สามารถเพิ่ม,ลบ,แก้ไข ข่าวสารได้
-- สามารถค้นหาข่าวสารได้
-- Admin สามารถให้สิทธิ User ในกาจัดการข่าวสารได้
-- ประเภทข่าวสาร
-- ยอดคนดู 
+https://esportshop.pythonanywhere.com/
+
+- ADMIN
+```
+- ล็อกอินเข้าสู่ระบบในฐานะแอดมิน
+- หน้า Dash board
+- เพิ่ม,ลบ,แก้ไข สินค้า
+- เพิ่ม,ลบ,แก้ไข ลูกค้า
+- รายการสั่งซื้อ (ดูรายการสินค้าลูกค้า, จัดการสาถนะการส่งสินค้า, เพิ่มเลขติดตามสินค้า)
+```
+
+- Custimer
+```
+- สมัครสมาชิก
+- ล็อกอินเข้าสู่ระบบในฐานะลูกค้า
+- เลือกสินค้าลงตะกร้า
+- จัดการตะกร้าสินค้า
+- เพิ่มและเลือกที่อยู่ในการจัดส่ง
+- เลือกวิธีการชำระเงิน (บัตรเครดิต และ โอนชำระ)
+- แจ้งชำระ (แนบรูปสลิป,ระบุวันที่โอนเงินเข้ามา)
+- ประวัติการสั่งซื้อสินค้า (ดูสถานะการส่งสินค้า และ ดูข้อมูลรายการสินค้าที่สั่ง , ปริ้นใบเสร็จ)
+```
   
 ## **เทคโนโลยีที่ใช้พัฒนา**
 ```
 Django Framework
-Bootstrap
+Bootstrap 4
 MySQL
 ```
 
@@ -31,11 +47,23 @@ python manage.py startapp ชื่อapp
 ```
 pip install django-wysiwyg
 pip install django-ckeditor
+pip install stripe-django
+pip install django-crispy-forms
+
+INSTALLED_APPS = [
+    'ckeditor',
+    'django_wysiwyg',
+    'crispy_forms',
+    'stripe'
+]
 ```
 
 
 ## **จัดการ Data base**
-  - ใช้คำสั้งนี้ทุกครั้งเมือมีการ update database(models)
+  1) ทำการ dump ข้อมูลจากไฟล์ database ลงในฐานข้อมูลให้ครบก่อน
+  2) database จะเกี่ยวกับ จังหวัด ,อำเภอ ,ตำบล ,สถานะการชำระเงิน ,ธนาคาร ,สถานะของสินค้า
+  3) ใช้คำสั้งนี้ทุกครั้งเมือมีการ update database(models)
+  
 ```
 python manage.py makemigrations
 python manage.py migrate
